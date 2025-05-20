@@ -1,14 +1,14 @@
 Chatbot-Gemini
-A Next.js chatbot application with Supabase authentication, Gemini AI integration, PDF parsing, and chat history storage. Built for an internship assignment, it offers AI and PDF-based chat modes with a user-friendly interface.
+A Next.js chatbot with Supabase authentication, Gemini AI integration, PDF parsing, and chat history storage. Built for an internship assignment, it offers AI and PDF chat modes in a clean, responsive interface.
 
-✨ Features
-🔐 User Authentication
+Features
+🔐 Authentication
 
-Tech: Next.js, Supabase Auth (JWT-based).
+Tech: Next.js, Supabase Auth (JWT).
 Details:
-Secure sign-in and sign-out.
-Chatbot access restricted to authenticated users.
-Redirects unauthenticated users to /signin.
+Secure sign-in/out.
+Chatbot access limited to authenticated users.
+Redirects to /signin for unauthenticated users.
 
 
 Code: src/supabase-provider.tsx, src/app/chatbot/page.tsx.
@@ -18,24 +18,24 @@ Code: src/supabase-provider.tsx, src/app/chatbot/page.tsx.
 Tech: Next.js API routes, Gemini API, pdf-parse.
 Details:
 AI Mode: Chat with Gemini AI for general queries.
-PDF Mode: Upload PDFs, parse text, and ask questions about content.
-Responsive UI with mode switching, PDF upload, and chat input.
+PDF Mode: Upload PDFs, parse text, and query content.
+UI with mode toggle, PDF upload, and chat input (Tailwind CSS).
 
 
 Code:
 PDF parsing: src/app/api/parse-pdf/route.ts.
 Gemini API: src/app/api/gemini-chat/route.ts.
-UI: src/app/chatbot/page.tsx (styled with Tailwind CSS).
+UI: src/app/chatbot/page.tsx.
 
 
 
-💾 Chat History Storage
+💾 Chat History
 
 Tech: Supabase (PostgreSQL).
 Details:
-Stores user queries and responses in chat_history table.
-Retrieves chat history for authenticated users.
-Scrollable history display in UI.
+Stores queries/responses in chat_history table.
+Retrieves history for authenticated users.
+Scrollable history display.
 
 
 Code:
@@ -44,14 +44,14 @@ Retrieve: src/app/api/get-chats/route.ts.
 
 
 
-📋 Assignment Requirements
+📋 Assignment Compliance
 
-Code Documentation: JSDoc comments and ESLint standards in all routes and components.
-Sample Responses: docs/sample_chat_responses.txt with example queries and responses.
-GitHub: Full codebase hosted at github.com/sahil00016/chatbot-gemini.
+Documentation: JSDoc comments, ESLint standards.
+Sample Responses: docs/sample_chat_responses.txt.
+Repository: github.com/sahil00016/chatbot-gemini.
 
 
-🛠️ Setup
+Setup
 Prerequisites
 
 Node.js (v18.17+)
@@ -67,15 +67,15 @@ npm install
 
 3. Configure Environment
 Create .env.local:
-NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
-SUPABASE_URL=your-supabase-url
-SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key
-GEMINI_API_KEY=your-gemini-api-key
+echo NEXT_PUBLIC_SUPABASE_URL=your-supabase-url > .env.local
+echo NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key >> .env.local
+echo SUPABASE_URL=your-supabase-url >> .env.local
+echo SUPABASE_SERVICE_ROLE_KEY=your-supabase-service-role-key >> .env.local
+echo GEMINI_API_KEY=your-gemini-api-key >> .env.local
 
 
-Supabase: Get keys from Supabase dashboard (Settings > API).
-Gemini: Obtain key from Gemini API dashboard.
+Supabase: Find keys in Supabase dashboard (Settings > API).
+Gemini: Get key from Gemini API dashboard.
 
 4. Set Up Supabase Database
 Run in Supabase SQL Editor:
@@ -100,28 +100,32 @@ CREATE POLICY "Users can insert their own chat history" ON chat_history
 
 5. Run Locally
 
-Development:npm run dev
+Development:
+
+npm run dev
 
 Visit http://localhost:3000.
-Production:npm run build
+
+Production:
+
+npm run build
 npm start
 
 Visit http://localhost:3000.
 
+Usage
 
-🚀 Usage
-
-Sign In: Go to /signin to log in or register.
+Sign In: Go to /signin to log in/register.
 Chatbot (/chatbot):
-AI Mode: Click "AI Chat" and send queries.
-PDF Mode: Click "PDF Chat", upload a PDF, and ask questions.
-History: Click "Load Previous Chats" to view past interactions.
+AI Mode: Click "AI Chat", send queries.
+PDF Mode: Click "PDF Chat", upload PDF, ask questions.
+History: Click "Load Previous Chats".
 
 
-Sign Out: Use Supabase Auth to log out.
+Sign Out: Use Supabase Auth.
 
 
-📂 Project Structure
+Structure
 chatbot-gemini/
 ├── src/
 │   ├── app/
@@ -141,24 +145,24 @@ chatbot-gemini/
 ├── .env.local
 
 
-📝 Notes
+Notes
 
-Documentation: JSDoc in all API routes and components; ESLint configured.
-Sample Responses: See docs/sample_chat_responses.txt.
+Documentation: JSDoc in all routes/components; ESLint configured.
+Samples: See docs/sample_chat_responses.txt.
 Troubleshooting:
-Build issues: Run npm install and check .env.local.
-Supabase errors: Verify schema and RLS.
-Gemini errors: Confirm API key.
-PDF issues: Ensure valid PDFs and pdf-parse installed.
+Build: Run npm install, check .env.local.
+Supabase: Verify schema, RLS.
+Gemini: Confirm API key.
+PDF: Ensure valid PDFs, pdf-parse installed.
 
 
 
 
-🌐 Repository
+Repository
 github.com/sahil00016/chatbot-gemini
-👤 Author
+Author
 Sahil (sahil00016)
-Submitted for internship assignment, May 20, 2025.
+Internship assignment, May 20, 2025.
 
 ![chatbot-2](https://github.com/user-attachments/assets/9ee92d69-1400-4b39-8ac3-438d65c51e38)
 ![chatbot](https://github.com/user-attachments/assets/32181b2d-9048-4655-b0cd-ec11f8f8c908)
