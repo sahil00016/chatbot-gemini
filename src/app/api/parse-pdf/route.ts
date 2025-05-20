@@ -31,10 +31,10 @@ export async function POST(req: NextRequest) {
   } catch (error) {
     console.error('PDF parsing error:', error);
     return NextResponse.json(
-      { 
-        error: 'Failed to parse PDF', 
-        details: error instanceof Error ? error.message : 'Unknown error' 
-      }, 
+      {
+        error: 'Failed to parse PDF',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      },
       { status: 500 }
     );
   }
